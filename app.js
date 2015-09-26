@@ -6,12 +6,23 @@ var express = require("express"),
 
 app.use(cors());
 
-app.get('/', function(req, res) {
-  res.send("Hello world!");
+app.get('/todo', function(req, res) {
+  res.json([
+    { id: 1, content: 'Buy milk', completed: true },
+    { id: 2, content: 'Buy beer', completed: false }
+  ]);
 });
 
-app.get('/task', function(req, res) {
-  res.json([{ name: "Task A" }, { name: "Task B" }]);
+app.post('/todo', function(req, res) {
+  res.send(200);
+});
+
+app.put('/todo/:todo', function(req, res) {
+  res.send(200);
+});
+
+app.delete('/todo/:todo', function(req, res) {
+  res.send(200);
 });
 
 server.listen(8080, function() {
